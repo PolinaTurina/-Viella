@@ -1,4 +1,45 @@
 {%extends 'root.html'%}
 {%block content%}
+
 <p>прайс</p>
+
+<div style="border: 1px solid #c59e9e;
+            border-radius: 3px;
+            background-color: white;
+            margin: 15px;
+            padding: 15px;">
+<ul style="list-style-type: none;">
+    {%for massage in massage_list%}
+    <li>
+        <div style="display: flex;">
+        <div style="display: flex;
+                    flex-direction: column;
+                    width: 350px;">
+        <h2>{{massage.name}}</h2>
+        <p style="margin-top: 15px;">{{massage.description}}</p>
+        <div style="display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    margin-top: 15px;">
+            <div style="display: flex; flex-direction: column;">
+        <p>15 мин - {{massage.fifteen_minutes}} ₽</p>
+        <p>30 мин - {{massage.thirty_minutes}} ₽</p>
+        <p>45 мин - {{massage.forty_five_minutes}} ₽</p>
+        <p>60 мин - {{massage.sixty_minutes}} ₽</p>
+            </div>
+        <div style="display: flex;">
+        <a href="#">Противопоказания...</a>
+        </div>
+        </div>
+        </div>
+        <img style="width: 250px;
+                    margin-left: 15px;
+                    border-radius: 3px;"
+                src = "{{massage.image.url}}">
+    </li>
+        </div>
+    {%endfor%}
+</ul>
+
+</div>
 {%endblock%}
