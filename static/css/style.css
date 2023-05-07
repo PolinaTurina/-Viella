@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top_panel{
+    background-color: #2d1b1b;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+a{
+    font-family: Century Gothic;
+    font-size: 18px;
+}
+.top_a{
+    color: white;
+    text-decoration: none;
+    margin-left: 50px;
+}
