@@ -2,8 +2,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from main.views import main_view, talons_sertificats_view, stop_view, price_view, about_view, comment_view, contact_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

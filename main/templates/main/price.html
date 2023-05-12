@@ -1,21 +1,25 @@
 {%extends 'root.html'%}
 {%block content%}
 
-<p>прайс</p>
 
-<div style="border: 1px solid #c59e9e;
+
+
+<ul style="list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;">
+    {%for massage in massage_list%}
+    <div style="border: 1px solid #c59e9e;
             border-radius: 3px;
             background-color: white;
-            margin: 15px;
+            margin: 15px 0px 15px 0px;
             padding: 15px;">
-<ul style="list-style-type: none;">
-    {%for massage in massage_list%}
     <li>
-        <div style="display: flex;">
+        <div style="display: flex; align-items: center;">
         <div style="display: flex;
                     flex-direction: column;
-                    width: 350px;">
-        <h2>{{massage.name}}</h2>
+                    width: 310px;">
+        <h3>{{massage.name}}</h3>
         <p style="margin-top: 15px;">{{massage.description}}</p>
         <div style="display: flex;
                     align-items: flex-end;
@@ -32,14 +36,18 @@
         </div>
         </div>
         </div>
-        <img style="width: 250px;
+        <img style="height: 170px;
                     margin-left: 15px;
                     border-radius: 3px;"
                 src = "{{massage.image.url}}">
     </li>
-        </div>
+    </div>
+
     {%endfor%}
+        
+    
 </ul>
+</div>
 
 </div>
 {%endblock%}
