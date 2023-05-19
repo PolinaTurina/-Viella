@@ -8,10 +8,9 @@ from main.views import main_view, talons_sertificats_view, stop_view, price_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_view, name='main'),
+    path('main/', include('main.urls', namespace='prices'), name='main'), #
     path('talons_sertificats/', talons_sertificats_view, name='talons_sertificats'),
     path('stop/', stop_view, name='stop'),
-    path('price/', price_view, name='price'),
     path('about/', about_view, name='about'),
     path('comment/', comment_view, name='comment'),
     path('contact/', contact_view, name='contact'),

@@ -9,17 +9,22 @@
 </head>
 <body>
     <div class="top_panel">
-        <a href="{% url 'main' %}" style="font-size: 25px; color: white; text-decoration: none;">VIELLA</a>
-        <a class="top_a" href="{% url 'main' %}">Главная</a>
+        <a href="{% url 'main:main' %}" style="font-size: 25px; color: white; text-decoration: none;">VIELLA</a>
+        <a class="top_a" href="{% url 'main:main' %}">Главная</a>
         <a class="top_a" href="{% url 'talons_sertificats' %}">Талоны и сертификаты</a>
         <a class="top_a" href="{% url 'stop' %}">Противопоказания</a>
-        <a class="top_a" href="{% url 'price' %}">Прайс</a>
+        <a class="top_a" href="{% url 'main:prices' page_number=1 %}">Цена</a>
         <a class="top_a" href="{% url 'about' %}">О нас</a>
         <a class="top_a" href="{% url 'comment' %}">Отзывы</a>
         <a class="top_a" href="{% url 'contact' %}">Контакты</a>
     </div>
 
-    <div class="layouth" style="display: flex; background-color: aqua; height: 100%; width: 85%;" >
+    <div class="layouth" style="display: flex;
+    background-color: aqua;
+    height: 100%;
+    width: 87%;
+    flex-direction: column;
+    align-items: center;" >
     
 
     {%block content%}

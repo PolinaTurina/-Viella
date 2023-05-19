@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage
 from .models import Massage
 
 
@@ -18,10 +19,26 @@ def stop_view(request):
 
 
 """страница прайс"""
-def price_view(request):
+def price_view(request, page_number = 1):
     massage = Massage.objects.all()
-    context = {"massage_list": massage}
-    return render(request, 'main/price.html', context)
+
+    paginator = Paginator(massage, 4)
+
+    try: page_obj = paginator.page(page_number)
+    except EmptyPage:
+        if  page_number < 1:
+            page_obj = paginator.page(1)
+        else:
+            page_obj = paginator.page(paginator.num_pages) 
+
+            """
+            можеть открыть репозиторийц матея? не поможет
+            не знаю даже, мне нужно подумать = -=
+            """
+
+
+    context = {"massage_list": page_obj} 
+    return render(request, 'main/price.html', context) 
 
 def img_view(request):
     context = {'image': Img.all()}
@@ -41,3 +58,4 @@ def comment_view(request):
 """страница контакты"""
 def contact_view(request):
     return render(request, 'main/contact.html')
+

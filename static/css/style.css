@@ -33,3 +33,21 @@ p{
 h3{
     font-family: Century Gothic;
 }
+.page{
+    font-size: 20px;
+    color: #2d1b1b;
+    font-family: Century Gothic;
+}
+.active{
+    color: rgb(255, 255, 255);
+    font-family: Century Gothic;
+}
+.page_style{
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #2d1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
