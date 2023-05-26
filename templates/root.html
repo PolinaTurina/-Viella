@@ -19,20 +19,15 @@
         <a class="top_a" href="{% url 'contact' %}">Контакты</a>
     </div>
 
-    <div class="layouth" style="display: flex;
-    background-color: aqua;
-    height: 100%;
-    width: 87%;
-    flex-direction: column;
-    align-items: center;" >
-    
+    <div class="layouth">
+    <!-- мы находимся в этой коробке, из-за чего выравнивание баннера невозможно с нашими параметрами, он должен быть как отдельный блок. -->
+    <p>тут могли бы быть хлебные крошки</p>
+    <!-- Она находится root и остается не изменной, нужно создавать ее отдельно на страничках -->
+    </div>
 
     {%block content%}
     
     {%endblock%}
-
-    </div>
-
     <div class="footer"></div>
 
 </body>

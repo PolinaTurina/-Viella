@@ -51,11 +51,13 @@
 
 <div style="    display: flex; flex-direction: row; align-items: center;">
     {% if massage_list.has_previous %}
-        <a  style='text-decoration: none; padding: 10px;' href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">{{massage_list.previous_page_number}}</p></a>
+        <a  style='text-decoration: none; padding: 10px;' href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">‹</p></a>
     {% endif %}
     <div class="page_style"><p class="page active">{{ massage_list.number }}</p></div>
     {% if massage_list.has_next %}
-        <a style='text-decoration: none; padding: 10px;;' href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">{{massage_list.next_page_number}}</p></a>
+        <a style='text-decoration: none; padding: 10px;;' href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">›</p></a>
     {% endif %}
 </div>
 {%endblock%}
+
+<!-- хочу загрузить статичную картинку. не получается. сек-->

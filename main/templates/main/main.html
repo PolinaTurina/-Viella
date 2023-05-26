@@ -1,4 +1,50 @@
 {%extends 'root.html'%}
+{%load static%}
 {%block content%}
-<p>главная</p>
+<style>
+    html
+    {
+        overflow-x: hidden;
+    }
+    .banner{
+        width: 100%; 
+        /* О какой полоске речь? */
+        /* vh - visible height - видимая высота окна, vw - видимая ширина,*/
+        /* осталось padding выровнять, max поставил чтобы не сбилось, окей это странно*/
+        /* не удобно когда коробка в коробке */
+        height: 100vh;
+        /* проблема в том что этот блок лежит в другом блоке, о происходят такие аномалии */
+        /*не правильный display, все элемнеты одлжны переноситься по страничке с помощью wrap, из-за flex-direction: coloumn; ты задала направление, но это убило
+        выравнивание. меню с ссылками должно быть по ширине 100% что бы flex-wrap перенес баннер вниз*/
+        background-image: url('{% static "img/banner.jpg"%}'); 
+        background-size: 100% 100%;
+
+        padding: 20px ;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+<div class="banner">
+    <div class="layouth_page">
+        <div class="time">
+            <p>Ежедневно с 10:00 до 20:00<br>
+            8(909) 146-08-26</p> 
+       </div>
+       <div style="display: flex; flex-direction: column; align-items: center; padding-top: 60px;">
+       <div class="banner_text">
+        <p style="font-size: 72px;">Массажный <br>
+            салон Viella</p>
+        <p style="font-size: 20px; padding-top: 40px;">Отличное настроение и заряд бодрости с помощью<br>
+           оздоровительного МАССАЖА на весь день.</p>
+       </div>
+       <button class="banner_but">Записаться</button>
+       </div>
+    </div>
+</div>
+<h1>Вот продолжение</h1>
 {%endblock%}
+
+<!-- блоки из главной или на странице main? это и есть главная тсраница все спс большое, ой я думал я на своем, не за что
+ = -=b -->
