@@ -24,18 +24,13 @@ def price_view(request, page_number = 1):
 
     paginator = Paginator(massage, 4)
 
-    try: page_obj = paginator.page(page_number)
+    try: 
+        page_obj = paginator.page(page_number)
     except EmptyPage:
         if  page_number < 1:
             page_obj = paginator.page(1)
         else:
             page_obj = paginator.page(paginator.num_pages) 
-
-            """
-            можеть открыть репозиторийц матея? не поможет
-            не знаю даже, мне нужно подумать = -=
-            """
-
 
     context = {"massage_list": page_obj} 
     return render(request, 'main/price.html', context) 

@@ -50,9 +50,38 @@ h3{
     font-family: Century Gothic;
 }
 .page{
-    font-size: 20px;
-    color: #2d1b1b;
-    font-family: Century Gothic;
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page:hover{
+    color: rgb(255, 255, 255);
+    background-color: #2d1b1ba2;
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.41s;
+}
+.a_pag{
+    text-decoration: none;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+}
+.page_box{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #c59e9e;
+    border-radius: 3px;
+    padding: 0px 10px 0px 10px;
+    margin-top: 30px;
 }
 .active{
     color: rgb(255, 255, 255);

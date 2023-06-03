@@ -3,17 +3,18 @@
 
 
 
-
 <ul style="list-style-type: none;
             display: flex;
+            width: 86%;
+            flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-evenly;">
+            justify-content: space-between;">
     {%for massage in massage_list%} 
     <div style="border: 1px solid #c59e9e;
-            border-radius: 3px;
-            background-color: white;
-            margin: 15px 0px 15px 0px;
-            padding: 15px;">
+                border-radius: 3px;
+                background-color: white;
+                margin: 15px 0px 15px 0px;
+                padding: 15px;">
     <li>
         <div style="display: flex; align-items: center;">
         <div style="display: flex;
@@ -49,15 +50,22 @@
     
 </ul>
 
-<div style="    display: flex; flex-direction: row; align-items: center;">
+
+<div class="page_box">
     {% if massage_list.has_previous %}
-        <a  style='text-decoration: none; padding: 10px;' href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">‹</p></a>
+        <a  class="a_pag" href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">❮</p></a>
+        <a  class="a_pag" href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">{{ massage_list.previous_page_number}}</p></a>
     {% endif %}
-    <div class="page_style"><p class="page active">{{ massage_list.number }}</p></div>
+
+    <div class="page_style">
+        <p class="page active">{{ massage_list.number }}</p>
+    </div>
+
     {% if massage_list.has_next %}
-        <a style='text-decoration: none; padding: 10px;;' href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">›</p></a>
+        <a class="a_pag" href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">{{massage_list.next_page_number}}</p></a>
+        <p>...</p>
+        <a class="a_pag" href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">❯</p></a>
     {% endif %}
 </div>
-{%endblock%}
 
-<!-- хочу загрузить статичную картинку. не получается. сек-->
+{%endblock%}
