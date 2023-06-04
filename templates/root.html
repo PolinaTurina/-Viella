@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="top_panel">
-        <a href="{% url 'main:main' %}" style="font-size: 25px; color: white; text-decoration: none;">VIELLA</a>
+        <a href="{% url 'main:main' %}"><img style="width: 100px;" src="{%static 'img/logo.png'%}"></a>
         <a class="top_a" href="{% url 'main:main' %}">Главная</a>
         <a class="top_a" href="{% url 'talons_sertificats' %}">Талоны и сертификаты</a>
         <a class="top_a" href="{% url 'stop' %}">Противопоказания</a>
@@ -28,7 +28,42 @@
     {%block content%}
     
     {%endblock%}
-    <div class="footer"></div>
+
+
+    <div class="footer">
+
+        <div>
+            <p>НАШИ СТАНДАРТЫ</p><br>
+            <p>Сервис высокого уровня:<br>
+                Каждый клиент для нас индивидуален и с особым подходом<br>
+                к необходимым процедурам.<br>
+                <br>
+                Услуги высокого качества:<br>
+                Мы относимся к своей работе профессионально грамотно.<br>
+                Гарантия качества усллуг:<br>
+                <br>
+                На все услуги связанные с применением компоненотов<br>
+                фирм производителей предоставляется гарантия исертификат.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <p>© 2023 “VIELLA”</p><br>
+            <a href="#">Главная</a><br>
+            <a href="#">Талоны и сертификаты</a><br>
+            <a href="#">Противопоказания</a><br>
+            <a href="#">Цена</a><br>
+            <a href="#">О нас</a><br>
+            <a href="#">Отзывы</a>
+        </div>
+
+        <div>
+            <p>НАШИ КОНТАКТЫ</p><br>
+            <p>8(909)146-08-26</p><br>
+            <p>spa_salon@gmail.com</p><br>
+            <p>Ул. Куйбышева, 28 офис 510</p><br>
+            <p>Ежедневно с 10:00 до 20:00</p>
+        </div>
+    </div>
 
 </body>
 </html>

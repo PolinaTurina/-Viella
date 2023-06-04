@@ -8,22 +8,30 @@
     }
     .banner{
         width: 100%; 
-        /* О какой полоске речь? */
-        /* vh - visible height - видимая высота окна, vw - видимая ширина,*/
-        /* осталось padding выровнять, max поставил чтобы не сбилось, окей это странно*/
-        /* не удобно когда коробка в коробке */
         height: 100vh;
-        /* проблема в том что этот блок лежит в другом блоке, о происходят такие аномалии */
-        /*не правильный display, все элемнеты одлжны переноситься по страничке с помощью wrap, из-за flex-direction: coloumn; ты задала направление, но это убило
-        выравнивание. меню с ссылками должно быть по ширине 100% что бы flex-wrap перенес баннер вниз*/
         background-image: url('{% static "img/banner.jpg"%}'); 
         background-size: 100% 100%;
-
         padding: 20px ;
-
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .block_2{
+        width: 100%; 
+        height: 80vh;
+        background-image: url('{% static "img/banner_fon.jpg"%}'); 
+        /* background-size: 100% 100%; */
+        padding: 20px ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: blur(30px) saturate(120%) contrast(200%);
+ }
+    .block_3{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 <div class="banner">
@@ -35,7 +43,7 @@
        <div style="display: flex; flex-direction: column; align-items: center; padding-top: 60px;">
        <div class="banner_text">
         <p style="font-size: 72px;">Массажный <br>
-            салон Viella</p>
+            салон</p><img style="width: 300px;" src="{%static 'img/logo.png'%}">
         <p style="font-size: 20px; padding-top: 40px;">Отличное настроение и заряд бодрости с помощью<br>
            оздоровительного МАССАЖА на весь день.</p>
        </div>
@@ -43,8 +51,64 @@
        </div>
     </div>
 </div>
+
+
+
+<div class="block_2">
+    <p class="p_h">Каждый массаж имеет уникальную технику</p>
+    <div style="display: flex; width: 100%; justify-content: space-evenly; height: 470px; margin-top: 40px;">
+        <img style="height: 470px; height: 470px;" src="{%static 'img/dop.png'%}">
+
+        <div style="display: flex; height: 100%;">
+            <img  style="border-radius: 3px; max-width: 300px;" src="{%static 'img/spa.jpg'%}">
+            <div style="padding: 0px 30px 0px 30px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;">
+                <img style="width: 300px; border-radius: 3px;" src="{%static 'img/Polza-medovogo-massazha.jpg'%}">
+                <div style="display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
+                    <p class="p_h">Сертификаты</p>
+                    <p>Если поиск подарка для вас<br>
+                        кажется тяжёлой задачей,<br>
+                        воспользуйтесь предложением<br>
+                        массажного салона "Viella" -<br>
+                        подарочным сертификатом на<br>
+                        посещение СПА-центра
+                    </p>
+                    <a class="top_a" href="{% url 'talons_sertificats' %}"><button class="but" style="margin-top: 20px; width: 250px;">Перейти</button></a>
+                </div>
+            </div>
+
+            <div style="display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        margin-left: 40px;">
+                <ul style="line-height: 2.10;">
+                {%for massage in massage_list%} 
+                <li>
+                    <p>{{massage.name}}</p>
+                </li>
+                {%endfor%}
+            </ul>
+            <p>Подробнее о ценах<br>
+            можете узнать здесть:</p>
+            <a href="{% url 'main:prices' page_number=1 %}"><button class="but" style="width: 250px;">Перейти</button></a>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+
+<div class="Block_3">
+    <iframe style="margin-top: 40px;"
+            width="860" height="515" src="https://www.youtube.com/embed/-eOyqfwCDUY"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+    </iframe>
+</div>
 <h1>Вот продолжение</h1>
 {%endblock%}
-
-<!-- блоки из главной или на странице main? это и есть главная тсраница все спс большое, ой я думал я на своем, не за что
- = -=b -->

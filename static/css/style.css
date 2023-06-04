@@ -15,6 +15,7 @@ body{
     width: 87%;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
 }
 .layouth_page{
     display: flex;
@@ -30,6 +31,13 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0px 1px 2px 0px rgb(255 255 255 / 19%),
+                1px 1px 4px 0px rgb(255 255 255 / 23%),
+                1px 3px 80px 0px rgb(255 255 255 / 15%),
+                2px 4px 160px 0px rgb(255 255 255 / 15%);
 
 }
 a{
@@ -82,6 +90,7 @@ h3{
     border-radius: 3px;
     padding: 0px 10px 0px 10px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .active{
     color: rgb(255, 255, 255);
@@ -119,5 +128,55 @@ button{
     font-size: 18px;
     width: 190px;
     height: 40px;
-   
+    cursor:pointer;
+    background: url('../img/texture.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    transition: .3s all ease-in-out;
+    background-blend-mode: screen;
+}
+
+button:hover {
+    background-size: 150% auto;
+    background-color: #ffecd74d;
+    background-blend-mode: screen;
+    transition: .2s all ease-in-out;
+    color: #2d1b1b;
+    border: 1px solid #2d1b1b;;
+}
+.p_h{
+    font-size: 20px;
+    color: #2d1b1b;
+    padding: 10px;
+}
+
+.footer{
+    background-color: #2d1b1b;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 30px 30px 30px;
+}
+.footer a{
+    color: white;
+    font-family: Century Gothic;
+    font-size: 15px;
+}
+.but{
+    margin-top: 20px;
+    width: 250px;
+    border: 1.5px solid #2d1b1be0;
+    border-radius: 3px;
+    background: url('../img/texture.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    transition: .3s all ease-in-out;
+}
+
+.but:hover {
+    background-size: 150% auto;
+    transition: .2s all ease-in-out;
+    color: #2d1b1b;
+    border: 1px solid #2d1b1b;;
 }

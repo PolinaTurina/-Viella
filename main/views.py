@@ -5,7 +5,8 @@ from .models import Massage
 
 """главная страница"""
 def main_view(request):
-    return render(request, 'main/main.html')
+    massage = Massage.objects.all() 
+    return render(request, 'main/main.html', {"massage_list": massage})
 
 
 """ страница талоны и сертификаты"""
