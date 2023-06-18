@@ -33,6 +33,83 @@
         align-items: center;
         justify-content: center;
     }
+
+
+
+
+
+    input{
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid #d7cbcb;
+    margin: 10px;
+    font-size: 16px;
+    font-family: Century Gothic;
+}
+select{
+    background-color: #c3c0c08a;
+    color: rgb(0, 0, 0);
+    width: 186px;
+    height: 30px;
+
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: Century Gothic;
+    padding-left: 10px;
+    opacity: 0.5;
+}
+th{
+    width: 200px;
+    text-align: left;
+    font-size: 16px;
+    font-family: Century Gothic;
+    font-weight: normal;
+    padding: 10px 0px 10px 0px;
+}
+
+
+/* неактивное состояние */
+input[type='checkbox']{
+    text-align: center;
+    vertical-align: middle;
+    width: 20px !important;
+    height: 20px !important;
+    appearance: none;
+    border-radius: 10%;
+    border: 1px solid #2d1b1b3f;
+    background-color: #b8ada43d;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+/* активное состояние */
+input[type='checkbox']:checked {
+  background-color: #b8ada43d;
+}
+input[type='checkbox']:checked:after {
+  content: '\2713';
+  color:#000000;
+
+}
+.form_input{
+    display: flex;
+    width: 250px;
+    padding: 5px;
+}
+textarea{
+    resize: none; 
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: Century Gothic;
+}
+li{
+    font-size: 16px;
+    font-family: Century Gothic;
+}
+
+
 </style>
 <div class="banner">
     <div class="layouth_page">
@@ -47,7 +124,60 @@
         <p style="font-size: 20px; padding-top: 40px;">Отличное настроение и заряд бодрости с помощью<br>
            оздоровительного МАССАЖА на весь день.</p>
        </div>
-       <button class="banner_but">Записаться</button>
+
+
+
+       <a href="#openModal"><button class="banner_but">Записаться</button></a>
+
+       <div id="openModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Записаться на приём</h3>
+              <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">    
+              
+
+                <!-- эта форма выводится в модальном окне-->
+            {%if success%}
+            <p>Скоро талон придет вам на электронную почту</p>
+            {%endif%}
+
+              <form style="display: flex; flex-direction: column; align-items: center; width: 500px; margin: 30px;" action="" method="post">
+                {% csrf_token %}
+                {% if form.as_p.errors%}
+                <div>
+                    <p>{{form.as_p.errors}}</p>
+                </div>
+                {%endif%}
+
+              
+                <p>телефон:</p>{{form2.phone}}
+                <p>ФИО:</p>{{form2.name}}
+                <p>emael:</p>{{form2.email}}
+                <div style="display: flex; text-align: center;">
+                    <div><p>вид массажа: {{form2.view}}</p></div>
+                    <div><p>доп услуга: {{form2.service}}</p></div>
+                </div>
+                <div style="display: flex; text-align: center;">
+                    <div><p>номер карты: {{form2.num_carta}}</p></div>
+                    <div><p>срок действия: {{form2.m_y}}</p></div>
+                </div>
+                <p>выберете банк</p>{{form2.bank}}
+                <p style="margin-top: 20px;">Комментарий <span style="color:  #523f2b99;">(необязательно)</span>:</p>{{form2.text}}
+                
+                <button style="margin: 10px; margin-top: 20px; border-radius: 3px;" type="submit">Отправить</button>
+            </form>
+            <!-- эта форма выводится -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
        </div>
     </div>
 </div>
@@ -84,12 +214,18 @@
                         justify-content: space-between;
                         margin-left: 40px;">
                 <ul style="line-height: 2.10;">
-                {%for massage in massage_list%} 
-                <li>
-                    <p>{{massage.name}}</p>
-                </li>
-                {%endfor%}
-            </ul>
+                    <li>Классический</li>
+                    <li>Шведский</li>
+                    <li>Расслабляющий</li>
+                    <li>Грудной</li>
+                    <li>Детский массаж</li>
+                    <li>Оздоровительный</li>
+                    <li>Антицеллюлитный</li>
+                    <li>Массаж ног</li>
+                    <li>Тайский</li>
+                    <li>Баночный</li>
+                    <li>Эротический</li>
+                </ul>
             <p>Подробнее о ценах<br>
             можете узнать здесть:</p>
             <a href="{% url 'main:prices' page_number=1 %}"><button class="but" style="width: 250px;">Перейти</button></a>
@@ -101,8 +237,9 @@
 </div>
 
 
-<div class="Block_3">
-    <iframe style="margin-top: 40px;"
+<div class="Block_3" style="display: flex; align-items: center; flex-direction: column;">
+    <p class="p_h">Вам также может быть интересно</p>
+    <iframe style="margin: 40px;"
             width="860" height="515" src="https://www.youtube.com/embed/-eOyqfwCDUY"
             title="YouTube video player"
             frameborder="0"
@@ -110,5 +247,4 @@
             allowfullscreen>
     </iframe>
 </div>
-<h1>Вот продолжение</h1>
 {%endblock%}

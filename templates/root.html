@@ -6,18 +6,25 @@
     <meta charset="UTF-8">
     <title>Viella</title>
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/style_window.css'%}">
 </head>
 <body>
-    <div class="top_panel">
-        <a href="{% url 'main:main' %}"><img style="width: 100px;" src="{%static 'img/logo.png'%}"></a>
-        <a class="top_a" href="{% url 'main:main' %}">Главная</a>
-        <a class="top_a" href="{% url 'talons_sertificats' %}">Талоны и сертификаты</a>
-        <a class="top_a" href="{% url 'stop' %}">Противопоказания</a>
-        <a class="top_a" href="{% url 'main:prices' page_number=1 %}">Цена</a>
-        <a class="top_a" href="{% url 'about' %}">О нас</a>
-        <a class="top_a" href="{% url 'comment' %}">Отзывы</a>
-        <a class="top_a" href="{% url 'contact' %}">Контакты</a>
-    </div>
+    
+        
+
+        <nav class="top_panel">
+            <a href="{% url 'main:main' %}"><img style="width: 100px;" src="{%static 'img/logo.png'%}"></a>
+            <ul>
+              <li><a class="top_a" href="{% url 'main:main' %}">Главная</a></li>
+              <li> <a class="top_a" href="{% url 'talons_sertificats' %}">Талоны и сертификаты</a></li>
+              <li><a class="top_a" href="{% url 'stop' %}">Противопоказания</a></li>
+              <li><a class="top_a" href="{% url 'main:prices' page_number=1 %}">Цена</a></li>
+              <li><a class="top_a" href="{% url 'about' %}">О нас</a></li>
+              <li><a class="top_a" href="{% url 'comment' %}">Отзывы</a></li>
+              <li><a class="top_a" href="{% url 'contact' %}">Контакты</a></li>
+            </ul>
+          </nav>
+  
 
     <div class="layouth">
     <!-- мы находимся в этой коробке, из-за чего выравнивание баннера невозможно с нашими параметрами, он должен быть как отдельный блок. -->

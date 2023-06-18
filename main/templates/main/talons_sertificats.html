@@ -1,4 +1,109 @@
 {%extends 'root.html'%}
 {%block content%}
-<p>талоны и сертификаты</p>
+
+<style>
+input{
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid #d7cbcb;
+    margin: 10px;
+    font-size: 16px;
+    font-family: Century Gothic;
+}
+select{
+    background-color: #c3c0c08a;
+    color: rgb(0, 0, 0);
+    width: 180px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: Century Gothic;
+    padding-left: 10px;
+    opacity: 0.5;
+}
+th{
+    width: 200px;
+    text-align: left;
+    font-size: 16px;
+    font-family: Century Gothic;
+    font-weight: normal;
+    padding: 10px 0px 10px 0px;
+}
+
+
+/* неактивное состояние */
+input[type='checkbox']{
+    text-align: center;
+    vertical-align: middle;
+    width: 20px !important;
+    height: 20px !important;
+    appearance: none;
+    border-radius: 10%;
+    border: 1px solid #2d1b1b3f;
+    background-color: #b8ada43d;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+/* активное состояние */
+input[type='checkbox']:checked {
+  background-color: #b8ada43d;
+}
+input[type='checkbox']:checked:after {
+  content: '\2713';
+  color:#000000;
+}
+
+  
+</style>
+
+<p class="p_h">Подарочные сертификаты на массаж</p>
+    <div style="width: 750px; text-align: center;">
+    <p>Подарочные сертификаты на массаж в Спа салоны Кургана являются оригинальным подарком,
+       который подойдет как женщине, так и мужчине.</p>
+
+    <p>Его по достоинству оценит получатель любого возраста и социального положения.</p>
+        
+    <p>Выбирайте подходящий дизайн подарочного сертификата, который передаст настроение
+       праздника его получателю. Ваш стильный и необычный подарок на приятные, запоминающиеся впечатления несомненно понравится!</p>
+        
+    <p>Вы можете выбрать сертификат с номиналом на любую подходящую сумму или оставить ее в тайне,
+       выбрав в качестве подарка услугу из широкого ассортимента массажа и спа-процедур, представленных на сайте.</p>
+</div>
+
+<div style="background-color: #f7ffff00;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 10px 1px #c3c0c08a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;">
+    {%if success%}
+        <p>Вы успешно приобрели сертификат!</p>
+    {%endif%}
+
+    <form style="display: flex; flex-direction: column; align-items: center; width: 500px; margin: 30px;" action="{%url 'talons_sertificats'%}" method="post">
+        {% csrf_token %}
+        {% if form.as_p.errors%}
+        <div>
+            <p>{{form.as_p.errors}}</p>
+        </div>
+        {%endif%}
+        <table>
+        {{form.as_table}}
+        </table>
+
+        {%for price in sert%}
+        <p>итого к оплате: {{price.price}} рублей</p>
+        {%endfor%}
+        
+        <button style="margin: 10px; border-radius: 3px;" type="submit">Отправить</button>
+    </form>
+
+</div>
+
+
 {%endblock%}

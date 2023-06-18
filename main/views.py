@@ -1,17 +1,59 @@
+from typing import Any
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage
-from .models import Massage
+from django.views.generic import ListView
+from .models import *
+from .forms import *
 
 
 """главная страница"""
 def main_view(request):
     massage = Massage.objects.all() 
-    return render(request, 'main/main.html', {"massage_list": massage})
+    context = {'massage_list': massage}
+    return render(request, 'main/main.html', context)
+
+
+"""обработчик формы в модбаном окне"""
+def modal_view(request):
+    
+    context = {}
+    if request.method == 'POST':
+        form = TalonForm(request.POST)
+        if form.is_valid():
+            context = {'success': 1}
+            form = TalonForm
+    else:
+        form = TalonForm()
+    context['form2'] = form
+    return render(request,'main/main.html', context=context)
+# class MainList(ListView):
+#     context_object_name = 'massage'
+#     template_name = 'main.html'
+#     queryset = Massage.objects.all()
+
+    # def get_context_data(self, *, objects_list = None, **kwargs):
+    #     context['form'] = в какую модель отправляется заявка? у меня нет моделей для форм формы и талонами и сертификатами в никуда. а что ты хочешь вывести если у тебя нет модели?! ФОРМУ
+    
 
 
 """ страница талоны и сертификаты"""
 def talons_sertificats_view(request):
-    return render(request, 'main/talons_sertificats.html')
+    sertificats = Sertificats.objects.all()
+    context = {"sert": sertificats}
+
+    if request.method == 'POST':
+        form = SertForm(request.POST)
+        if form.is_valid():
+            send_sert(form.cleaned_data['name'], form.cleaned_data['phone'], form.cleaned_data['email'])
+            context = {'success': 1}
+            form = SertForm
+    else:
+        form = SertForm()
+    context ['form'] = form
+    return render(request, 'main/talons_sertificats.html', context,)
+
+def send_sert(phone, email, name, view, text):
+    pass
 
 
 """страница противопоказания"""
@@ -54,4 +96,3 @@ def comment_view(request):
 """страница контакты"""
 def contact_view(request):
     return render(request, 'main/contact.html')
-
