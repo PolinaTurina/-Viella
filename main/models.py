@@ -65,6 +65,7 @@ class Comments(models.Model):
     status = models.BooleanField(verbose_name='Видимость статьи', default=False)
 
     class Meta():
+        ordering = ["-id"]
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
@@ -83,5 +84,4 @@ class Userimage(models.Model):
 
     def __str__(self):
         return self.name
-    
     

@@ -94,7 +94,6 @@ def about_view(request):
 
 """страница отзывы"""
 def comment_view(request):
-
     comments = Comments.objects.all()
     context = {}
     if request.method == "POST":
@@ -105,7 +104,7 @@ def comment_view(request):
     else:
         form = CommentForm()
         context ['comment_form'] = form
-    return render(request, 'main/comment.html', {'comments':comments, 'comment_form':form})
+    return render(request, 'main/comment.html', {'comments':comments, 'comment_form':form},)
 
 
 
