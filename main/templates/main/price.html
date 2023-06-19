@@ -2,13 +2,14 @@
 {%block content%}
 
 
-
-<ul style="list-style-type: none;
-            display: flex;
-            width: 86%;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;">
+<div style="width: 87%;">
+<ul style="    list-style-type: none;
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;">
+    
     {%for massage in massage_list%} 
     <div style="border: 1px solid #c59e9e;
                 border-radius: 3px;
@@ -46,26 +47,39 @@
 
     {%endfor%}
 
+
+
+
+
+
+    <div class="page_box">
+        {% if massage_list.has_previous %}
+            <a  class="a_pag" href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">❮</p></a>
+            <a  class="a_pag" href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">{{ massage_list.previous_page_number}}</p></a>
+        {% endif %}
     
+        <div class="page_style">
+            <p class="page active">{{ massage_list.number }}</p>
+        </div>
+    
+        {% if massage_list.has_next %}
+            <a class="a_pag" href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">{{massage_list.next_page_number}}</p></a>
+            <p>...</p>
+            <a class="a_pag" href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">❯</p></a>
+        {% endif %}
+    </div>
+
+
+    
+
+    
+
     
 </ul>
 
 
-<div class="page_box">
-    {% if massage_list.has_previous %}
-        <a  class="a_pag" href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">❮</p></a>
-        <a  class="a_pag" href="{% url 'main:prices' massage_list.previous_page_number %}"><p class="page">{{ massage_list.previous_page_number}}</p></a>
-    {% endif %}
 
-    <div class="page_style">
-        <p class="page active">{{ massage_list.number }}</p>
-    </div>
-
-    {% if massage_list.has_next %}
-        <a class="a_pag" href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">{{massage_list.next_page_number}}</p></a>
-        <p>...</p>
-        <a class="a_pag" href="{% url 'main:prices' massage_list.next_page_number %}"><p class="page">❯</p></a>
-    {% endif %}
 </div>
+
 
 {%endblock%}

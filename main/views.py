@@ -93,9 +93,9 @@ def about_view(request):
 
 
 """страница отзывы"""
-def comment_view(request):
-    comments = Comments.objects.all()
+def comment_view(request, page_number = 1):
     context = {}
+    comments = Comments.objects.all()
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -104,7 +104,18 @@ def comment_view(request):
     else:
         form = CommentForm()
         context ['comment_form'] = form
-    return render(request, 'main/comment.html', {'comments':comments, 'comment_form':form},)
+
+
+        
+    paginator = Paginator(comments, 5)
+    try:
+            page_obj = paginator.page(page_number)
+    except Exception:
+            if page_number < 1:
+                page_obj = paginator.page(1)
+            else:
+                page_obj = paginator.page(paginator.num_pages) 
+    return render(request, 'main/comment.html', {'comments':comments, 'comment_form':form, 'page_comments':page_obj},)
 
 
 
