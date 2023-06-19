@@ -22,3 +22,10 @@ class  SertAdmin(admin.ModelAdmin):
 class BanksAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+
+@admin.register(Comments)
+class CommentsAdmin(admin.ModelAdmin):
+    list_display = ('name','create_date',)
+    readonly_fields = ('create_date',)
+    search_fields = ('name','text',)
+    list_filter= ('create_date',)
