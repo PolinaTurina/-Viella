@@ -2,15 +2,30 @@
 {%block content%}
 <p>отзывы</p>
 
+    <div style="width: 55%;
+                padding: 30px;
+                box-shadow: 1px 1px 20px 1px #9391902b;
+                border-radius: 3px;">
     {%for com in comments%}
-    <div>
-        <p>{{com.name}}</p>
-        <p>{{com.text}}</p>
+    <div style="padding: 20px;">
+        <div style="display: flex; align-items: center;">
+            <img style="width: 30px;
+                        padding: 2px;
+                        margin-right: 5px;
+                        border-radius: 50%;
+                        background-color: #f1f1f1;" src="/static/img/user.png">
+           
+            <p style="font-size: 16px; color: #b33434;"><b>{{com.name}}</b> <span style="color: rgba(66, 59, 59, 0.411); font-size: 14px;">пишет:</span></p>
+        </div>
+        <p style="color: rgba(66, 59, 59, 0.411); font-size: 14px;">{{com.create_date}}</p>
+        <p style="margin-top: 10px;">{{com.text}}</p>
+        <hr style="opacity: 0.4; margin-top: 15px;">
     </div>
     {%endfor%}
+    </div>
 
    
-    <form action="" method="post"  style="display: flex; flex-direction: column;">
+    <form action="{%url 'comment'%}" method="post"  style="display: flex; flex-direction: column;">
         {% csrf_token %}
         {{ comment_form }}
         <input type="submit" value="Добавить комментарий">

@@ -6,6 +6,7 @@ from .models import *
 from .forms import *
 
 
+
 """главная страница"""
 def main_view(request):
     massage = Massage.objects.all() 
@@ -13,7 +14,7 @@ def main_view(request):
     return render(request, 'main/main.html', context)
 
 
-"""обработчик формы в модбаном окне"""
+"""обработчик формы в модальном окне"""
 def modal_view(request):
     
     context = {}
@@ -26,13 +27,6 @@ def modal_view(request):
         form = TalonForm()
     context['form2'] = form
     return render(request,'main/main.html', context=context)
-# class MainList(ListView):
-#     context_object_name = 'massage'
-#     template_name = 'main.html'
-#     queryset = Massage.objects.all()
-
-    # def get_context_data(self, *, objects_list = None, **kwargs):
-    #     context['form'] = в какую модель отправляется заявка? у меня нет моделей для форм формы и талонами и сертификатами в никуда. а что ты хочешь вывести если у тебя нет модели?! ФОРМУ
     
 
 
@@ -78,9 +72,19 @@ def price_view(request, page_number = 1):
     context = {"massage_list": page_obj} 
     return render(request, 'main/price.html', context) 
 
+
+
+"""обработка картинок на странице прайс"""
 def img_view(request):
     context = {'image': Img.all()}
     return render (request, 'price.html', context)
+
+
+"""обработка аватарок на странице с отзывами"""
+def user_view(request):
+    context = {'image': Img.all()}
+    return render (request, 'comment.html', context)
+
 
 
 """страница о нас"""
@@ -90,6 +94,7 @@ def about_view(request):
 
 """страница отзывы"""
 def comment_view(request):
+
     comments = Comments.objects.all()
     context = {}
     if request.method == "POST":

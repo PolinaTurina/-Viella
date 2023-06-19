@@ -29,3 +29,7 @@ class CommentsAdmin(admin.ModelAdmin):
     readonly_fields = ('create_date',)
     search_fields = ('name','text',)
     list_filter= ('create_date',)
+
+@admin.register(Userimage)
+class UserimageAdmin(admin.ModelAdmin):
+    list_display = ('name',)
