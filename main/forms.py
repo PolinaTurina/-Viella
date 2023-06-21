@@ -3,7 +3,9 @@ from .models import *
 
 
 class SertForm(forms.Form):
-    phone = forms.CharField(max_length = 11, label = "телефон")
+    phone = forms.CharField(max_length = 11,
+                            label = "телефон",
+                            widget = forms.TextInput(attrs={'placeholder': '8**********', 'class': ''}))
     name = forms.CharField(max_length = 50, min_length = 4, label = "ФИО", widget = forms.TextInput())
     email = forms.EmailField(widget = forms.EmailInput())
     view = forms.ModelChoiceField(queryset=Sertificats.objects.all(), label = "вид сертификата")

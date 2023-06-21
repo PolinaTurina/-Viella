@@ -1,9 +1,94 @@
 {%extends 'root.html'%}
 {%block content%}
+ <style>
+    .social:hover{
+        transform: scale(1.1);
+        transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .p_a{
+        margin-top: 10px;
+    }
+
+    .p_aa{
+        color: rgba(66, 59, 59, 0.411);
+        font-size: 14px;
+    }
+
+    .p_a a{
+        display: flex;
+        align-items: center;
+        color: #e1641a;
+        text-decoration: none;
+
+    }
+
+    .p_a a:hover{
+        color: rgb(20, 34, 48);
+    }
+ </style>
 
 
-<p>контакты</p>
+
+<p class="p_h">Контакты</p>
+
+<div style="display: flex;
+            width: 80%;
+            justify-content: space-between;
+            height: 500px;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-right: 3px;
+            box-shadow: 1px 1px 20px 1px #0e0c0c0d;">
+
+<img style="height: 400px;" src="/static/img/act.png">
+
+<div style="    width: 260px;
+                display: flex;
+                flex-direction: column;">
+
+<div class="p_a">
+    <p class="p_aa">Звоните по номеру:</p>
+    <a href="#"><img style="height: 20px; margin-right: 10px;" src="/static/img/icon_phone.png">8(909)146-08-26</a>
+</div>
+
+<div class="p_a">
+    <p class="p_aa">Электронная почта:</p>
+    <a href="#"><img style="height: 20px; margin-right: 10px;" src="/static/img/icon_mail.png">spa_salon@gmail.com</a>
+</div>
+
+<div class="p_a">
+    <p class="p_aa">Мы находимся по адресу:</p>
+    <a href="#"><img style="height: 20px; margin-right: 10px;" src="/static/img/icon_carta.png">Город Курган, улица Куйбышева, дом 28, офис 510</a>
+</div>
 
 
 
+<div style="height: 206px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 30px;">
+<p>Запишитесь на приём онлайн. Заполните форму и диспетчер сам вам позвонит, чтобы назначить сеанс.</p>
+<p>Ежедневно с 10:00 до 20:00</p>
+<p>Присоединяйтесь!</p>
+
+<div style="display: flex;">
+<a class="social" href="#"><img style="height: 30px; margin-right: 10px;" src="/static/img/icon_vk.png"></a>
+<a class="social" href="#"><img style="height: 30px; margin-right: 10px;" src="/static/img/icon_telega.png"></a>
+<a class="social" href="#"><img style="height: 30px; margin-right: 10px;" src="/static/img/icon_youtube.png"></a>
+</div>
+
+</div>
+
+</div>
+
+
+<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8ca4fa638d50e0d6c5df660847fe6618c3454e4983b6038048c08641160d4507&amp;source=constructor"
+width="570"
+height="400"
+frameborder="0"></iframe>
+
+</div>
 {%endblock%}
