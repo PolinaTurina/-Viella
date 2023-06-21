@@ -1,5 +1,6 @@
 {%extends 'root.html'%}
 {%block content%}
+{%load static%}
 
 <style>
 input{
@@ -56,8 +57,25 @@ input[type='checkbox']:checked:after {
   color:#000000;
 }
 
+
+.body{
+        background-image: url('{% static "img/ca.jpg"%}'); 
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+        width: 100%;
+}
+label{
+    font-size: 16px;
+    font-family: Century Gothic;
+}
   
 </style>
+
+<div class="body">
 
 <p class="p_h">Подарочные сертификаты на массаж</p>
     <div style="width: 750px; text-align: center;">
@@ -73,7 +91,7 @@ input[type='checkbox']:checked:after {
        выбрав в качестве подарка услугу из широкого ассортимента массажа и спа-процедур, представленных на сайте.</p>
 </div>
 
-<div style="background-color: #f7ffff00;
+<div style="background-color: #f7ffffa1;
             padding: 30px;
             margin: 30px;
             border-radius: 3px;
@@ -105,5 +123,5 @@ input[type='checkbox']:checked:after {
 
 </div>
 
-
+</div>
 {%endblock%}

@@ -38,7 +38,7 @@ def talons_sertificats_view(request):
     if request.method == 'POST':
         form = SertForm(request.POST)
         if form.is_valid():
-            send_sert(form.cleaned_data['name'], form.cleaned_data['phone'], form.cleaned_data['email'])
+            send_sert(form.cleaned_data['name'], form.cleaned_data['phone'], form.cleaned_data['email'], )
             context = {'success': 1}
             form = SertForm
     else:
@@ -46,7 +46,7 @@ def talons_sertificats_view(request):
     context ['form'] = form
     return render(request, 'main/talons_sertificats.html', context,)
 
-def send_sert(phone, email, name, view, text):
+def send_sert(phone, email, name):
     pass
 
 

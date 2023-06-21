@@ -1,5 +1,7 @@
 {%extends 'root.html'%}
 {%block content%}
+{%load static%}
+
  <style>
     .social:hover{
         transform: scale(1.1);
@@ -26,9 +28,21 @@
     .p_a a:hover{
         color: rgb(20, 34, 48);
     }
+
+    .body{
+        background-image: url('{% static "img/ca.jpg"%}'); 
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+        width: 100%;
+}
  </style>
 
 
+<div class="body">
 
 <p class="p_h">Контакты</p>
 
@@ -40,7 +54,8 @@
             margin-top: 30px;
             margin-bottom: 30px;
             border-right: 3px;
-            box-shadow: 1px 1px 20px 1px #0e0c0c0d;">
+            box-shadow: 1px 1px 20px 1px #0e0c0c0d;
+            background-color: #ffffffa6;">
 
 <img style="height: 400px;" src="/static/img/act.png">
 
@@ -89,6 +104,8 @@
 width="570"
 height="400"
 frameborder="0"></iframe>
+
+</div>
 
 </div>
 {%endblock%}

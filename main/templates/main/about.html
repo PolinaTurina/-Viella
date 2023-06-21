@@ -1,5 +1,6 @@
 {%extends 'root.html'%}
 {%block content%}
+{%load static%}
 
 
 <style>
@@ -92,8 +93,22 @@ h1{
 .hover-image-scale img:hover {
   transform: scale(1.2); /* Увеличиваем масштаб */
 }
+
+
+.body{
+        background-image: url('{% static "img/ca.jpg"%}'); 
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+        width: 100%;
+}
 </style>
 
+
+<div class="body">
 
 
 <div style="    display: flex;
@@ -145,5 +160,9 @@ h1{
     <img src="/static/img/sotrud3.png">
     <img src="/static/img/sotrud4.png">
     </div>
+</div>
+
+
+
 </div>
 {%endblock%}

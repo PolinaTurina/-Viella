@@ -1,5 +1,21 @@
 {%extends 'root.html'%}
 {%block content%}
+{%load static%}
+
+<style>
+    .body{
+        background-image: url('{% static "img/ca.jpg"%}'); 
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+}
+</style>
+
+
+<div class="body">
 
 <p class="p_h">Прйс на услуги</p>
 <div style="width: 87%;">
@@ -11,9 +27,9 @@
                 justify-content: space-between;">
     
     {%for massage in massage_list%} 
-    <div style="border: 1px solid #c59e9e;
-                border-radius: 3px;
-                background-color: white;
+    <div style="border-radius: 3px;
+                background-color: #ffffff94;
+                box-shadow: 1px 1px 10px 1px #00000047;
                 margin: 15px 0px 15px 0px;
                 padding: 15px;">
     <li>
@@ -34,13 +50,15 @@
         <p>60 мин - {{massage.sixty_minutes}} ₽</p>
             </div>
         <div style="display: flex;">
-        <a href="#">Противопоказания...</a>
+        <a style="color: #255f9b;" href="{% url 'stop' %}">Противопоказания...</a>
         </div>
         </div>
         </div>
         <img style="height: 170px;
                     margin-left: 15px;
-                    border-radius: 3px;"
+                    border-radius: 3px;
+                    width: 230px;
+                    object-fit: cover;"
                 src = "{{massage.image.url}}">
     </li>
     </div>
@@ -78,6 +96,8 @@
 </ul>
 
 
+
+</div>
 
 </div>
 

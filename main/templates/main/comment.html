@@ -1,6 +1,6 @@
 {%extends 'root.html'%}
 {%block content%}
-
+{%load static%}
 
 <style>
 input{
@@ -23,8 +23,20 @@ li{
     font-size: 14px;
     font-family: Century Gothic;
 }
+
+.body{
+        background-image: url('{% static "img/ca.jpg"%}'); 
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+}
 </style>
 
+
+<div class="body">
 
 <p class="p_h">Отзывы</p>
 
@@ -66,7 +78,8 @@ li{
     <div style="width: 55%;
                 padding: 30px;
                 box-shadow: 1px 1px 20px 1px #9391902b;
-                border-radius: 3px;">
+                border-radius: 3px;
+                background-color: #ffffffb5;">
     {%for com in comments%}
     <div style="padding: 20px;">
         <div style="display: flex; align-items: center;">
@@ -108,4 +121,7 @@ li{
    
     
     </div>
+
+
+</div>
 {%endblock%}

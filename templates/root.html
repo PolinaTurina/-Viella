@@ -54,12 +54,17 @@
 
         <div style="display: flex; flex-direction: column;">
             <p>© 2023 “VIELLA”</p><br>
-            <a href="#">Главная</a><br>
-            <a href="#">Талоны и сертификаты</a><br>
-            <a href="#">Противопоказания</a><br>
-            <a href="#">Цена</a><br>
-            <a href="#">О нас</a><br>
-            <a href="#">Отзывы</a>
+            <p><a href="{% url 'main:main' %}">Главная</a></p>
+            <br>
+            <p><a href="{% url 'talons_sertificats' %}">Cертификаты</a></p>
+            <br>
+            <p><a href="{% url 'stop' %}">Противопоказания</a></p>
+            <br>
+            <p><a href="{% url 'main:prices' page_number=1 %}">Цена</a></p>
+            <br>
+            <p><a href="{% url 'about' %}">О нас</a></p>
+            <br>
+            <p><a href="{% url 'main:comments' page_number=1 %}">Отзывы</a></p>
         </div>
 
         <div>
