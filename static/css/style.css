@@ -139,20 +139,25 @@ button{
     background-position: center;
     transition: .3s all ease-in-out;
     background-blend-mode: screen;
+    color: #401606;
+    box-shadow: 0px 0px 20px 1px #130f1457;
 }
 
 button:hover {
     background-size: 150% auto;
-    background-color: #ffecd74d;
+    background-color: #ffecd71a;
     background-blend-mode: screen;
     transition: .2s all ease-in-out;
-    color: #2d1b1b;
-    border: 1px solid #2d1b1b;;
+    color: #f5acacd2;
+    font-size: 19px;
+    border: 1px solid #2d1b1b;
+    box-shadow: 0px 0px 20px 1px #130f1457;
 }
 .p_h{
     font-size: 20px;
-    color: #2d1b1b;
+    color: #762e12;
     padding: 10px;
+    font-weight: bold;
 }
 
 .footer{
@@ -171,7 +176,7 @@ button:hover {
 .but{
     margin-top: 20px;
     width: 250px;
-    border: 1.5px solid #2d1b1be0;
+    border: 1.8px solid #462121d9;
     border-radius: 3px;
     background: url('../img/texture.png') no-repeat;
     background-size: 100% auto;
@@ -182,8 +187,11 @@ button:hover {
 .but:hover {
     background-size: 150% auto;
     transition: .2s all ease-in-out;
-    color: #2d1b1b;
-    border: 1px solid #2d1b1b;;
+    color: #190e20da;
+    font-size: 19px;
+    border: 1px solid #523232c5;
+    background-color: #2d1b1b11;
+    box-shadow: 1px 1px 10px 1px #4e242411;
 }
 
 

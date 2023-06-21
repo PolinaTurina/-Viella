@@ -107,7 +107,7 @@ def comment_view(request, page_number = 1):
 
 
         
-    paginator = Paginator(comments, 5)
+    paginator = Paginator(comments, 3)
     try:
             page_obj = paginator.page(page_number)
     except Exception:
