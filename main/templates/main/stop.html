@@ -1,4 +1,44 @@
 {%extends 'root.html'%}
+{%load static%}
 {%block content%}
-<p>противопоказания</p>
+
+<style>
+    .body{
+        background-image: url('{% static "img/ca.jpg"%}'); 
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+</style>
+
+<div class="body">
+<p class="p_h">противопоказания</p>
+
+<div style="width: 80%;
+            background-color: #f3f3f310;
+            display: flex;
+            flex-direction: column;
+            align-items: center;">
+
+    {%for stop in stop_list%}
+        <div style="padding: 30px;
+                    margin: 30px;
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height: 200px;
+                    align-items: center;
+                    border-radius: 3px;
+                    box-shadow: 1px 1px 10px 1px #00000024;
+                    background-color: #fffbf663;">
+        <p style="font-size: 20px;"><b>противопоказания к:</b> <span class="p_h">{{stop.name_massage}}</span></p>
+        <p>{{stop.text}}</p>
+        </div>
+    {%endfor%}
+
+</div>
+</div>
 {%endblock%}

@@ -52,7 +52,9 @@ def send_sert(phone, email, name, view, text):
 
 """страница противопоказания"""
 def stop_view(request):
-    return render(request, 'main/stop.html')
+    stop = Stop.objects.all()
+    context = {"stop_list": stop}
+    return render(request, 'main/stop.html', context)
 
 
 """страница прайс"""

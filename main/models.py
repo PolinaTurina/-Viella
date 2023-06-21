@@ -73,15 +73,11 @@ class Comments(models.Model):
         return (self.text[:20] +"...")
 
 
+    
 
-class Userimage(models.Model):
-    name = models.CharField(max_length=32, verbose_name='описание')
-    image = models.ImageField(upload_to='%Y/%m/%d', verbose_name="Изображение")
-
-    class Meta:
-        verbose_name = 'Картинка для пользователей'
-        verbose_name_plural = 'Картинки для пользователей'
+class Stop(models.Model):
+    name_massage = models.OneToOneField(Massage, on_delete = models.CASCADE, primary_key = True, verbose_name='противопоказание к:')
+    text = models.TextField(max_length=800 ,verbose_name='Список противопоказаний:')
 
     def __str__(self):
-        return self.name
-    
+        return self.name_massage

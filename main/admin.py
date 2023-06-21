@@ -30,6 +30,8 @@ class CommentsAdmin(admin.ModelAdmin):
     search_fields = ('name','text',)
     list_filter= ('create_date',)
 
-@admin.register(Userimage)
-class UserimageAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+
+@admin.register(Stop)
+class StopAdmin(admin.ModelAdmin):
+    list_display = ('name_massage','text',)
+    
