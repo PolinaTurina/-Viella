@@ -55,8 +55,14 @@ def send_sert(phone, email, name):
 
 """страница противопоказания"""
 def stop_view(request):
-    stop = Stop.objects.all()
+    if 'q' in request.GET:
+        q = request.GET['q']
+        stop = Stop.objects.filter(text__icontains=q)
+    else:
+        stop = Stop.objects.all()
     context = {"stop_list": stop}
+    
+    
     return render(request, 'main/stop.html', context)
 
 
@@ -163,5 +169,4 @@ def register_view(request):
     else:
         form = UserRegisterForm()
     return render(request, 'main/register.html', {'reg_form':form})
-
 
