@@ -224,3 +224,44 @@ button:hover {
   .top_panel a:hover::before{
     transform: scale3d(1,1,1);
   }
+
+  .errorlist{
+    color: #e03d3dd0;
+    font-family: Century Gothic;
+    font-size: 14px;
+  }
+  .alert{
+    width: 512px;
+    padding: 10px;
+    margin: 8px;
+    max-width: 90%;
+    border: 1px solid #2d1b1b3b;
+    text-align: center;
+    color: #2d1b1bbf;
+    font-family: Century Gothic;
+    font-size: 14px;
+    background-color: #2d1b1b;
+    background-color: #b53a3a6e;
+    border-radius: 3px;
+  }
+
+  li .log_red{
+    background: #62575733;
+    color: #6e6a67;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px 1px #302d2d2e;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  li .log_red:hover{
+    transform: scale(1.2);
+    color: #aa3c16;
+    background-color: #180d0d36;
+    -webkit-text-shadow: 20px 20px 20px #0f0911c5;
+    -moz-text-shadow: 2px 2px 2px #121114;
+    text-shadow: 2px 2px 5px #ffffff8f;
+    transition: 0.8s;
+    font-size: 18px;
+  }
+

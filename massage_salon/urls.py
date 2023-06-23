@@ -3,8 +3,7 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, include
-from main.views import main_view, talons_sertificats_view, stop_view, price_view, about_view, comment_view, contact_view
-
+from main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,6 +14,11 @@ urlpatterns = [
     path('about/', about_view, name='about'),
     # path('comment/', comment_view, name='comment'),
     path('contact/', contact_view, name='contact'),
+
+    path ('register/', register_view, name = 'register'),
+    path ('login/', user_login, name = 'login'),
+    path ('logout/', user_logout, name = 'logout'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

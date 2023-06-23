@@ -1,10 +1,13 @@
 from typing import Any
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage
 from django.views.generic import ListView
 from .models import *
 from .forms import *
 
+
+from django.contrib import messages
+from django.contrib.auth import login, logout
 
 
 """главная страница"""
@@ -124,3 +127,41 @@ def comment_view(request, page_number = 1):
 """страница контакты"""
 def contact_view(request):
     return render(request, 'main/contact.html')
+
+
+
+"""страница авторизация"""
+def user_login(request):
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect ('main:main')
+    else:
+        form = UserLoginForm()
+    return render(request, 'main/login.html', {'login_form':form})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect ('login')
+
+
+
+"""страница регистрация"""
+def register_view(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, 'Регистраиця прошла успешно!')
+            return redirect ('main:main')
+        else: 
+            messages.error(request, 'Ошибка регистрации')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'main/register.html', {'reg_form':form})
+
+

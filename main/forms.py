@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 
 
 class SertForm(forms.Form):
@@ -66,3 +68,26 @@ class CommentForm(forms.ModelForm):
                            label = "Комментарий", 
                            widget = forms.Textarea(attrs={'cols':50, 'rows': 5, 'placeholder': 'Напишите пару слов...', 'class': 'form_input'}))
     
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(label="Имя пользователя",
+                               widget=forms.TextInput( attrs = {'class': 'form_input', 'placeholder': 'Котик',}))
+    password = forms.CharField(label="Пароль",
+                               widget=forms.PasswordInput( attrs = {'class': 'form_input', 'placeholder': '********',}))   
+
+
+class UserRegisterForm(UserCreationForm):
+    username = forms.CharField(label="Имя пользователя",
+                               widget=forms.TextInput( attrs = {'class': 'form_input', 'placeholder': 'Котик',}))
+    password1 = forms.CharField(label="Пароль",
+                               widget=forms.PasswordInput( attrs = {'class': 'form_input', 'placeholder': '********',}))
+    password2 = forms.CharField(label="Подтверждение пароля",
+                               widget=forms.PasswordInput( attrs = {'class': 'form_input', 'placeholder': '********',}))
+    email = forms.EmailField(label="Email",
+                               widget=forms.EmailInput( attrs = {'class': 'form_input', 'placeholder': '***@gmail.com',}))
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+
